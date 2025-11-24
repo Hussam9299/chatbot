@@ -1,11 +1,16 @@
 [project]
-name = "chatbot"
+name = "panaversity-ai-assistant"
 version = "0.1.0"
-description = "Add your description here"
-readme = "README.md"
-requires-python = ">=3.13"
+description = "Panaversity AI Assistant with Gemini and Chainlit"
+requires-python = ">=3.11"
+
 dependencies = [
     "chainlit>=2.9.2",
-    "openai-agents>=0.6.1",
+    "openai>=2.8.1", 
     "python-dotenv>=1.2.1",
+    "agents>=0.1.0",
 ]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"

@@ -104,5 +104,5 @@ async def main(message: cl.Message):
 
 if __name__ == "__main__":
     # Use the PORT environment variable provided by Railway
-    port = int(os.environ.get("PORT", 8000))
+    port = int(os.environ.get("PORT", 8080))
     cl.run(app, host="0.0.0.0", port=port)

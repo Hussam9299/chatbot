@@ -9,11 +9,13 @@ from openai import AsyncOpenAI
 load_dotenv()
 gemini_api_key = os.getenv("GEMINI_API_KEY")
 
-if not gemini_api_key:
-    raise ValueError("GEMINI_API_KEY is not set. Please ensure it is defined in your .env file")
-
+# Remove the hard exit and handle it in the startup
 @cl.on_chat_start
 async def start():
+    if not gemini_api_key:
+        await cl.Message(content="❌ Error: GEMINI_API_KEY is not set. Please add it in Railway environment variables.").send()
+        return
+    
     # Reference: https://ai.google.dev/gemini-api/docs/openai
     client = AsyncOpenAI(
         api_key=gemini_api_key,
@@ -27,6 +29,10 @@ async def start():
 
 @cl.on_message
 async def main(message: cl.Message):
+    if not gemini_api_key:
+        await cl.Message(content="❌ Error: GEMINI_API_KEY is not configured. Please contact the administrator.").send()
+        return
+        
     msg = cl.Message(content="Thinking...")
     await msg.send()
 

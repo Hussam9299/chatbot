@@ -3,4 +3,3 @@ openai==2.8.1
 python-dotenv==1.2.1
 aiohttp==3.13.2
 click==8.3.1
-openai-agents==1.4.0

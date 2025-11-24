@@ -4,7 +4,8 @@ import base64
 from dotenv import load_dotenv
 from typing import cast
 import chainlit as cl
-from agents import Agent, Runner, AsyncOpenAI, OpenAIChatCompletionsModel
+from openai.agents import Agent, Runner
+from openai import AsyncOpenAI
 from agents.run import RunConfig
 
 load_dotenv()
